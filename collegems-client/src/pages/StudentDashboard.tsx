@@ -26,8 +26,11 @@ import {
   AwardIcon,
   AlertCircle,
   ClipboardList,
+  Bus,
+  IdCard,
 } from "lucide-react";
 import api from "../api/axios";
+import BusRoutes from "../common-components-management/BusRoutes";
 import Attendance from "../user-components/Attendance";
 import Fees from "../user-components/Fee";
 import Assignment from "../user-components/Assignment";
@@ -42,6 +45,7 @@ import ExaminationForm from "../user-components/ExaminationForm";               
 import UpcomingExamsWidget from "../user-components/UpcomingExamWidget";            // ← master
 import LeaveRequest from "../user-components/LeaveRequest";                         // ← master
 import Scholarships from "../common-components-management/Scholarships";
+import IDCard from "../user-components/IDCard";
 
 export default function StudentDashboard() {
   const navigate = useNavigate();
@@ -97,9 +101,11 @@ export default function StudentDashboard() {
     { id: "academic-calendar",  label: "Academic Calendar", icon: CalendarDays },
     { id: "events",             label: "Events",            icon: CalendarDays },
     { id: "results",            label: "Results",           icon: AwardIcon },
-    { id: "leave",              label: "Leave Requests",    icon: ClipboardList }, // ← master
+    { id: "leave",              label: "Leave Requests",    icon: ClipboardList },
     { id: "library",            label: "Library",           icon: BookOpen },
-    { id: "exam-form",          label: "Examination Form",  icon: FileText },      // ← master
+    { id: "exam-form",          label: "Examination Form",  icon: FileText },
+    { id: "bus-routes",         label: "Bus Tracking",      icon: Bus },
+    { id: "id-card",            label: "ID Card",           icon: IdCard },
     { id: "scholarships",       label: "Scholarships",      icon: AwardIcon },
   ];
 
@@ -557,6 +563,8 @@ export default function StudentDashboard() {
               {activeTab === "leave"             && <LeaveRequest />}
               {activeTab === "library"           && <Library />}
               {activeTab === "exam-form"         && <ExaminationForm />}
+              {activeTab === "bus-routes"        && <BusRoutes />}
+              {activeTab === "id-card"           && <IDCard student={student} />}
               {activeTab === "scholarships"      && <Scholarships />}
               {activeTab === "settings"          && (
                 <div className="text-sm text-gray-600">
