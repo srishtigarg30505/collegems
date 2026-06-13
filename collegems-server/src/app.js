@@ -34,6 +34,7 @@ import scholarshipRoutes from "./routes/scholarship.routes.js";
 import idCardRoutes from "./routes/idcard.routes.js";
 import { verifyStudent } from "./controllers/idcard.controller.js";
 import busRouteRoutes from "./routes/busRoute.routes.js";
+import timetableRoutes from "./routes/timetable.routes.js";
 
 import { authenticate } from "./middlewares/auth.middleware.js";
 
@@ -84,6 +85,7 @@ app.use("/api/reports", reportRoutes);
 app.use("/api/student/idcard", idCardRoutes);
 app.get("/api/verify/student/:studentId", verifyStudent);
 app.use("/api/bus-routes", authenticate, busRouteRoutes);
+app.use("/api/timetable", timetableRoutes);
 
 // Health check
 app.get("/", (_req, res) => res.send("SCMS Backend Running 🚀"));

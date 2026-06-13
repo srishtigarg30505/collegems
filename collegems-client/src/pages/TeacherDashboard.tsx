@@ -27,6 +27,7 @@ import LeaveApprovals from "../teacher-components/LeaveApprovals";
 import AchievementSubmissionForm from "../teacher-components/AchievementSubmissionForm";
 import AssessmentSettings from "../teacher-components/AssessmentSettings";
 import InternalMarksEntry from "../teacher-components/InternalMarksEntry";
+import TimeTable from "../user-components/TimeTable";
 
 export default function TeacherDashboard() {
   const navigate = useNavigate();
@@ -76,6 +77,7 @@ export default function TeacherDashboard() {
   const navigationItems = [
     { id: "overview", label: "Overview", icon: LayoutDashboard },
     { id: "myattendance", label: "My Attendance", icon: ClipboardList },
+    { id: "timetable", label: "My Timetable", icon: Calendar },
     { id: "courses", label: "My Courses", icon: BookMarked },
     { id: "assignments", label: "Assignments", icon: CheckSquare },
     { id: "attendance", label: "Attendance", icon: ClipboardList },
@@ -344,6 +346,7 @@ export default function TeacherDashboard() {
           )}
 
           {activeTab === "myattendance" && <MyAttendance />}
+          {activeTab === "timetable" && <TimeTable />}
           {activeTab === "courses" && <HodCourses />}
           {activeTab === "assignments" && <TeacherAssignments courseId={courses[0]?._id || "default-course-id"} />}
           {activeTab === "attendance" && <StudentAttendance />}

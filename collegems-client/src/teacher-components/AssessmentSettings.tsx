@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Save, Plus, Trash2, AlertCircle, CheckCircle, Loader2, Settings } from "lucide-react";
+import { Save, Plus, Trash2, AlertCircle, CheckCircle, Loader2 } from "lucide-react";
 import api from "../api/axios";
 
 interface Course {
@@ -128,7 +128,7 @@ export default function AssessmentSettings() {
 
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-1">Select Course</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Select Course {loading && "(Loading...)"}</label>
           <select
             value={selectedCourse}
             onChange={(e) => setSelectedCourse(e.target.value)}
